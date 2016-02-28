@@ -3,7 +3,7 @@
 // MODULES //
 
 var tape = require( 'tape' );
-var MAX_UINT16 = 65535; //require( 'const-max-uint16' );
+var MAX_UINT16 = require( 'const-max-uint16' );
 var bits = require( './../lib' );
 
 
