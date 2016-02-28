@@ -1,6 +1,6 @@
 {
   "name": "math-uint16-bits",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Returns a string giving the literal bit representation of an unsigned 16-bit integer.",
   "author": {
     "name": "Athan Reines",
