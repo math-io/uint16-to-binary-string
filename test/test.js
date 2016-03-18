@@ -4,7 +4,7 @@
 
 var tape = require( 'tape' );
 var MAX_UINT16 = require( 'const-max-uint16' );
-var bits = require( './../lib' );
+var binaryString = require( './../lib' );
 
 
 // FIXTURES //
@@ -15,7 +15,7 @@ var data = require( './fixtures/data.json' );
 // TESTS //
 
 tape( 'main export is a function', function test( t ) {
-	t.equal( typeof bits, 'function', 'main export is a function' );
+	t.equal( typeof binaryString, 'function', 'main export is a function' );
 	t.end();
 });
 
@@ -24,7 +24,7 @@ tape( 'the function returns a literal 16-bit unsigned integer representation for
 
 	expected = '0000000000000000';
 
-	t.equal( bits(0), expected, 'returns bit literal for 0' );
+	t.equal( binaryString(0), expected, 'returns bit literal for 0' );
 	t.end();
 });
 
@@ -33,7 +33,7 @@ tape( 'the function returns a literal 16-bit unsigned integer representation for
 
 	expected = '1111111111111111';
 
-	t.equal( bits(MAX_UINT16), expected, 'returns bit literal for MAX_UINT16' );
+	t.equal( binaryString(MAX_UINT16), expected, 'returns bit literal for MAX_UINT16' );
 	t.end();
 });
 
@@ -46,7 +46,7 @@ tape( 'the function returns literal bit representations for unsigned 16-bit inte
 	x = data.x;
 	expected = data.expected;
 	for ( i = 0; i < x.length; i++ ) {
-		str = bits( x[ i ] );
+		str = binaryString( x[ i ] );
 		t.equal( str, expected[ i ], 'returns bit literal for ' + x[ i ] );
 	}
 	t.end();
@@ -71,7 +71,7 @@ tape( 'the function will accept floating-point values, but will interpret the va
 	];
 
 	for ( i = 0; i < values.length; i++ ) {
-		str = bits( values[i] );
+		str = binaryString( values[i] );
 		t.equal( typeof str, 'string', 'returns a string' );
 		t.equal( str.length, 16, 'returns a string of length 16' );
 	}
